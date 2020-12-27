@@ -9,6 +9,9 @@ import SwiftUI
 
 struct Calculator: View {
     // MARK: - Add states here
+    @State var number = ""
+    
+    
     
     var body: some View {
         ZStack{
@@ -17,32 +20,67 @@ struct Calculator: View {
                 Spacer()
                 HStack{
                     Spacer()
-                    Text("0")
+                    Text(number)
                         .modifier(TitleModifier())
                         .animation(.easeIn(duration: 0.1))
+                           
+                       
+                        
                 }
                 HStack{
                     Text("C").modifier(ButtonModifier(type: .gray))
+                        .onTapGesture{
+                            number = ""
+                        }
                     Text("±").modifier(ButtonModifier(type: .gray))
                     Text("%").modifier(ButtonModifier(type: .gray))
+                       
+                        
                     Text("÷").modifier(ButtonModifier(type: .orange))
                 }
                 HStack{
                     Text("7").modifier(ButtonModifier(type: .gray))
+                        .onTapGesture{
+                            number = number + "7"
+                        }
                     Text("8").modifier(ButtonModifier(type: .gray))
+                        .onTapGesture{
+                            number = number + "8"
+                        }
                     Text("9").modifier(ButtonModifier(type: .gray))
+                        .onTapGesture{
+                            number = number + "9"
+                        }
                     Text("×").modifier(ButtonModifier(type: .orange))
                 }
                 HStack{
                     Text("4").modifier(ButtonModifier(type: .gray))
+                        .onTapGesture{
+                            number = number + "4"
+                        }
                     Text("5").modifier(ButtonModifier(type: .gray))
+                        .onTapGesture{
+                            number = number + "5"
+                        }
                     Text("6").modifier(ButtonModifier(type: .gray))
+                        .onTapGesture{
+                            number = number + "6"
+                        }
                     Text("-").modifier(ButtonModifier(type: .orange))
                 }
                 HStack{
                     Text("1").modifier(ButtonModifier(type: .gray))
+                        .onTapGesture{
+                            number = number + "1"
+                        }
                     Text("2").modifier(ButtonModifier(type: .gray))
+                        .onTapGesture{
+                            number = number + "2"
+                        }
                     Text("3").modifier(ButtonModifier(type: .gray))
+                        .onTapGesture{
+                            number = number + "3"
+                        }
                     Text("+").modifier(ButtonModifier(type: .orange))
                 }
                 HStack{
@@ -103,6 +141,7 @@ struct Zero: ViewModifier{
 
 struct Calculator_Previews: PreviewProvider {
     static var previews: some View {
-        Calculator()//.environment(\.colorScheme, .dark)
+        Calculator()
+            .previewDevice("iPhone 12")//.environment(\.colorScheme, .dark)
     }
 }
